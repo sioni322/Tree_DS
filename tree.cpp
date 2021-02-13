@@ -237,6 +237,7 @@ int Tree::remove_bst(int v) {
 
 /* "find" function: Find the node whose number is "n" and return its address */
 Node* Tree::find(int n) {
+    //If the number "n" is out of range
     if(n > maxnum || n < 0)
         return NULL;
 
@@ -244,10 +245,13 @@ Node* Tree::find(int n) {
     queue<Node*> queue;
     int count = 0;
 
+    //Find the node which has number "n"
     while(count < total) {
+        //If we found the node, return
         if(node->node_number() == n) {
             return node;
         }
+        //Else, continue
         else {
             if(node->node_left() != NULL)
                 queue.push(node->node_left());
